@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skills Gained — Laiba Alvi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=IBM+Plex+Mono:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div id="preloader">
+  <div class="terminal-loader">
+    <div class="terminal-logo">
+      <svg width="120" height="120" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="17,1 33,9 33,25 17,33 1,25 1,9" fill="none" stroke="#4dc7e2" stroke-width="1.5"/>
+        <polygon points="17,6 28,12 28,22 17,28 6,22 6,12" fill="none" stroke="#4dc7e2" stroke-width="0.6" opacity="0.45"/>
+        <text x="17" y="20.5" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="900" font-size="8.5" fill="#4dc7e2" letter-spacing="0.5">L.A.</text>
+      </svg>
+    </div>
+    <div class="terminal-line line1">INITIALIZING SECURITY TERMINAL...</div>
+    <div class="terminal-line line2">LOADING MODULES...</div>
+    <div class="terminal-line line3">AUTHENTICATION SUCCESSFUL</div>
+    <div class="terminal-line line4"><span id="loadingPercent">0%</span></div>
+    <div class="terminal-line access" id="accessGranted">ACCESS GRANTED</div>
+  </div>
+</div>
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="17,1 33,9 33,25 17,33 1,25 1,9" fill="none" stroke="#4dc7e2" stroke-width="1.5"/>
+      <polygon points="17,6 28,12 28,22 17,28 6,22 6,12" fill="none" stroke="#4dc7e2" stroke-width="0.6" opacity="0.45"/>
+      <text x="17" y="20.5" text-anchor="middle" font-family="Orbitron,sans-serif" font-weight="900" font-size="8.5" fill="#4dc7e2" letter-spacing="0.5">L.A.</text>
+    </svg>
+    [ <span>L.A.</span> PORTFOLIO ]
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">About</a></li>
+    <li><a href="skills.html" class="active">Skills Gained</a></li>
+    <li><a href="academic.html">Academic Journey</a></li>
+    <li><a href="projects.html">Projects &amp; Achievements</a></li>
+    <li><a href="certificates.html">Certificates</a></li>
+    <li><a href="contact.html">Let's Chat</a></li>
+  </ul>
+  <button class="nav-burger" aria-label="Toggle menu" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+</nav>
+
+<main>
+  <div class="page">
+    <div class="section-header">
+      <span class="section-num">// 02</span>
+      <h1 class="section-title">SKILLS GAINED</h1>
+      <div class="section-line"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card skill-card fade-in">
+        <div class="skill-icon">SYS-SEC</div>
+        <div class="skill-name">SYSTEM SECURITY</div>
+        <div class="skill-tags">
+          <span class="tag">Vulnerability Scanning</span>
+          <span class="tag">Penetration Testing</span>
+          <span class="tag">Cryptographic Techniques</span>
+          <span class="tag">Mitigation Techniques</span>
+          <span class="tag">Digital Forensics</span>
+        </div>
+      </div>
+      <div class="card skill-card fade-in">
+        <div class="skill-icon">NETWORK</div>
+        <div class="skill-name">NETWORKING</div>
+        <div class="skill-tags">
+          <span class="tag">Cisco Packet Tracer &amp; Real-Kit Labs</span>
+          <span class="tag">EtherChannel Configuration</span>
+          <span class="tag">DHCPv4 Configuration</span>
+          <span class="tag">Security Configuration</span>
+          <span class="tag">LAN/WAN Configuration</span>
+          <span class="tag">Switching and Routing</span>
+          <span class="tag">IPv4 and IPv6 Addressing</span>
+        </div>
+      </div>
+      <div class="card skill-card fade-in">
+        <div class="skill-icon">FORENSIC</div>
+        <div class="skill-name">CYBER FORENSICS</div>
+        <div class="skill-tags">
+          <span class="tag">Digital Forensic Imaging</span>
+          <span class="tag">Registry Analysis</span>
+          <span class="tag">Windows Artefact Analysis using Autopsy</span>
+          <span class="tag">Incident Response</span>
+          <span class="tag">Chain-of-Custody Documentation</span>
+        </div>
+      </div>
+      <div class="card skill-card fade-in">
+        <div class="skill-icon">DEV</div>
+        <div class="skill-name">COMPUTER PROGRAMMING</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">HTML5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <span>&copy; 2026 LAIBA ALVI // CYBER SECURITY</span>
+</footer>
+
+<script>
+(function () {
+  const preloader = document.getElementById("preloader");
+  if (!preloader) return;
+
+  // Only the first page opened in this browser tab gets the full preloader.
+  if (sessionStorage.getItem("portfolioPreloaderShown") === "true") {
+    preloader.remove();
+    return;
+  }
+
+  sessionStorage.setItem("portfolioPreloaderShown", "true");
+
+  const counter = document.getElementById("loadingPercent");
+  const access = document.getElementById("accessGranted");
+  const lines = preloader.querySelectorAll(".terminal-line");
+
+  // Show the terminal messages immediately and keep the percentage visible.
+  lines.forEach((line, index) => {
+    if (line !== access) {
+      setTimeout(() => line.classList.add("preloader-show"), 100 + index * 180);
+    }
+  });
+
+  let percent = 0;
+
+  // 0 -> 100 takes about 2 seconds.
+  const timer = setInterval(() => {
+    percent += 2;
+    if (counter) counter.textContent = percent + "%";
+
+    if (percent >= 100) {
+      clearInterval(timer);
+      if (counter) counter.textContent = "100%";
+
+      // ACCESS GRANTED appears only after 100%.
+      setTimeout(() => {
+        if (access) access.classList.add("preloader-show");
+      }, 150);
+
+      // Give the user a moment to see ACCESS GRANTED, then fade out.
+      setTimeout(() => {
+        preloader.classList.add("hidden");
+        setTimeout(() => preloader.remove(), 400);
+      }, 800);
+    }
+  }, 40);
+})();
+</script>
+</body>
+</html>
