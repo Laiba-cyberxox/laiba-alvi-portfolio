@@ -11,14 +11,16 @@
 
 <style>
 
+/* ── CONTACT FORM ── */
+
 .contact-form-wrapper {
   margin-top: 2.5rem;
-  max-width: 700px;
+  max-width: 900px;
 }
 
 .contact-form-title {
   font-family: 'Share Tech Mono', monospace;
-  color: var(--accent);
+  color: #21203F;
   font-size: 14px;
   margin-bottom: 1.5rem;
 }
@@ -26,82 +28,116 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .form-group label {
   font-family: 'Share Tech Mono', monospace;
-  color: var(--accent);
-  font-size: 12px;
+  color: #21203F;
+  font-size: 13px;
+  font-weight: 600;
 }
+
+/* WHITE INPUT BOXES */
 
 .form-group input,
 .form-group textarea {
   width: 100%;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(77, 199, 226, 0.25);
-  color: white;
-  padding: 14px;
+
+  background: #ffffff;
+  border: 1px solid #21203F;
+
+  color: #000000;
+
+  padding: 16px;
+
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 13px;
+  font-size: 14px;
+
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 12px rgba(77, 199, 226, 0.12);
-}
-
-.form-group textarea {
-  min-height: 150px;
-  resize: vertical;
-}
+/* TEXT INSIDE THE BOXES */
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: var(--muted);
+  color: #000000;
+  opacity: 1;
 }
+
+/* WHEN YOU CLICK INSIDE A BOX */
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #21203F;
+
+  box-shadow:
+    0 0 0 2px rgba(33, 32, 63, 0.12);
+}
+
+/* MESSAGE BOX */
+
+.form-group textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+/* SEND BUTTON */
 
 .contact-submit {
   align-self: flex-start;
-  padding: 13px 24px;
-  border: 1px solid var(--accent);
-  background: transparent;
-  color: var(--accent);
+
+  padding: 13px 26px;
+
+  border: 1px solid #21203F;
+  background: #21203F;
+
+  color: #ffffff;
+
   font-family: 'Orbitron', sans-serif;
   font-size: 11px;
   letter-spacing: 0.5px;
+
   cursor: pointer;
-  transition: all 0.2s ease;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .contact-submit:hover {
-  background: var(--accent);
-  color: #071017;
-  box-shadow: 0 0 20px rgba(77, 199, 226, 0.2);
+  background: #ffffff;
+  color: #21203F;
+
+  box-shadow:
+    0 0 15px rgba(33, 32, 63, 0.15);
 }
 
-.form-note {
-  margin-top: 1rem;
-  color: var(--muted);
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 11px;
-  line-height: 1.7;
-}
+/* MOBILE */
 
 @media (max-width: 600px) {
+
   .contact-submit {
     width: 100%;
   }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 13px;
+  }
+
 }
 
 </style>
@@ -216,10 +252,6 @@
           </button>
 
         </form>
-
-        <p class="form-note">
-          Your message will be securely submitted through the contact form.
-        </p>
 
       </div>
 
